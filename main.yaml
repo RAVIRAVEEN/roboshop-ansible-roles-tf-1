@@ -1,6 +1,6 @@
 - name: "install {{component}}"
   hosts: "{{component}}"
-  connection: localhost
+  connection: local
   become: yes
   # vars_files:
   # - variables.yaml
