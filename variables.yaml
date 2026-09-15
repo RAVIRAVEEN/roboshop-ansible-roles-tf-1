@@ -1,0 +1,11 @@
+MONGODB_HOST: mongodb.devopsrank.online
+REDIS_HOST: redis.devopsrank.online
+CATALOGUE_HOST: catalogue.devopsrank.online
+USER_HOST: user.devopsrank.online
+CART_HOST: cart.devopsrank.online
+SHIPPING_HOST: shipping.devopsrank.online
+MYSQL_HOST:  mysql.devopsrank.online
+RABBITMQ_HOST: rabbitmq.devopsrank.online
+PAYMENTS_HOST: payments.devopsrank.online
+WEB_HOST: web.devopsrank.online
+DISPATCH_HOST: dispatch.devopsrank.online

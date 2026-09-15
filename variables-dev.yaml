@@ -1,0 +1,13 @@
+MONGODB_HOST: mongodb-dev.devopsrank.online
+REDIS_HOST: redis-dev.devopsrank.online
+CATALOGUE_HOST: catalogue.app-dev.devopsrank.online
+USER_HOST: user.app-dev.devopsrank.online
+CART_HOST: cart.app-dev.devopsrank.online
+SHIPPING_HOST: shipping.app-dev.devopsrank.online
+MYSQL_HOST: mysql-dev.devopsrank.online
+RABBITMQ_HOST: rabbitmq-dev.devopsrank.online
+PAYMENTS_HOST: payments.app-dev.devopsrank.online
+#WEB_HOST: web-dev.devopsrank.online
+DISPATCH_HOST: dispatch.app-dev.devopsrank.online
+NEXUS_URL: http://172.31.45.35:8081/repository
+group_id: "com/roboshop"

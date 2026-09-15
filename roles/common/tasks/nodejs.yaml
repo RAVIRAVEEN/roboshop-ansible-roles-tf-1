@@ -1,0 +1,14 @@
+  - name: disable old nodejs and enable nodejs
+    ansible.builtin.shell: dnf module disable nodejs -y ; dnf module enable nodejs:18 -y
+
+  - name: "Install {{ component }}"
+    ansible.builtin.package:
+     name: nodejs
+     state: present
+    
+
+  # yu don't require if you are doing this through CICD
+  # - name: Install dependencies
+  #   ansible.builtin.command: npm install
+  #   args:
+  #    chdir: /app
