@@ -1,8 +1,13 @@
-   - name: Configure YUM  erlang Repo
-     ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+   - name: copy rabbitmq repo
+     ansible.builtin.copy:
+      src: rabbitmq.repo
+      dest: /etc/yum.repos.d/rabbitmq.repo
+   
+  #  - name: Configure YUM  erlang Repo
+  #    ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
 
-   - name: Configure YUM  rabbitmq-server Repo
-     ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
+  #  - name: Configure YUM  rabbitmq-server Repo
+  #    ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
 
 
    - name: install rabbitmq
@@ -17,13 +22,13 @@
         state: started
         enabled: yes 
 
-   - name: install mysql python libraries
-     ansible.builtin.pip:
-      executable: pip3.9
-      name: "{{ item }}"
-     loop:
-        - botocore
-        - boto3    
+  #  - name: install mysql python libraries
+  #    ansible.builtin.pip:
+  #     executable: pip3.9
+  #     name: "{{ item }}"
+  #    loop:
+  #       - botocore
+  #       - boto3    
 
   #  - name: create roboshop
   #    ansible.builtin.user:
