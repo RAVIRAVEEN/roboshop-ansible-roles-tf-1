@@ -15,7 +15,7 @@
       name: "{{ item }}"
     loop:
       - botocore
-       - boto3
+      - boto3
 
 
    
