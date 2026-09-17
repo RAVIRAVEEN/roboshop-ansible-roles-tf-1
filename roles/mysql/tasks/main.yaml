@@ -11,11 +11,13 @@
 
   - name: install mysql python libraries
     ansible.builtin.pip:
-     executable: pip3.9
-     name: "{{ item }}"
-     loop:
+      executable: pip3.9
+      name: "{{ item }}"
+    loop:
       - botocore
        - boto3
+
+
    
   - name: setup root password
     ansible.builtin.command: "mysql_secure_installation --set-root-pass {{ lookup('aws_ssm', '/roboshop/{{env}}/mysql_root_pass', region='us-east-1', decrypt=True ) }}"
