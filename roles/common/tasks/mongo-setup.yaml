@@ -5,9 +5,12 @@
 
   - name: Install mongodb client
     ansible.builtin.package:
-       name: mongodb-org-shell
+       name: 
+        - mongodb-org
+        - mongodb-mongosh
        state: present
-    
+
+
 
   - name: "gets the {{component}} entries count"
     ansible.builtin.shell: mongo --host {{MONGODB_HOST}} --quiet --eval 'db = db.getSiblingDB("catalogue"); db.product.count()'
