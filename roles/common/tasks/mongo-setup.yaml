@@ -30,10 +30,14 @@
 
 
 
+  # - name: "gets the {{component}} entries count"
+  #   ansible.builtin.shell: mongosh --host {{MONGODB_HOST}} --quiet --eval 'db = db.getSiblingDB("catalogue"); db.product.count()'
+  #   register: product_count
+  #   when: component == "catalogue"
+
   - name: "gets the {{component}} entries count"
-    ansible.builtin.shell: mongosh --host {{MONGODB_HOST}} --quiet --eval 'db = db.getSiblingDB("catalogue"); db.product.count()'
-    register: product_count
-    when: component == "catalogue"
+    shell: mongosh --host "{{ MONGODB_HOST }}" --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
+    register: catalogue_output
 
     
   - name: "gets the  {{component}} entries count"
@@ -45,10 +49,16 @@
   #   ansible.builtin.debug:
   #     msg: "product count is {{ product_count }}"
 
-  - name: "load catalogue data"
-    ansible.builtin.shell: "mongosh --host {{MONGODB_HOST}} </app/schema/{{component}}.js"   
-    when: component == "catalogue" and product_count.stdout == "0"
-    #ignore_errors: true
+  # - name: "load catalogue data"
+  #   ansible.builtin.shell: "mongosh --host {{MONGODB_HOST}} </app/schema/{{component}}.js"   
+  #   when: component == "catalogue" and product_count.stdout == "0"
+  #   #ignore_errors: true
+
+  - name: load catalogue products
+    shell: mongosh --host "{{ MONGODB_HOST }}" </app/db/master-data.js
+    when: catalogue_output.stdout | int < 0
+    # tags:
+    # - mongodb
 
     
     
