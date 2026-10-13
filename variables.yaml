@@ -1,6 +1,6 @@
-MONGODB_HOST: mongodb.devopsrank.online
-REDIS_HOST: redis.devopsrank.online
-CATALOGUE_HOST: catalogue.devopsrank.online
+MONGODB_HOST: mongodb-{{ env }}.raveen.fun
+REDIS_HOST: redis-{{ env }}.raveen.fun
+CATALOGUE_HOST: catalogue-{{ env }}.raveen.fun
 USER_HOST: user.devopsrank.online
 CART_HOST: cart.devopsrank.online
 SHIPPING_HOST: shipping.devopsrank.online
