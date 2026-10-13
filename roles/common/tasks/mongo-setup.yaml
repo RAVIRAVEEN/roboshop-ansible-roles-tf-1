@@ -3,12 +3,30 @@
       src: mongo.repo
       dest: /etc/yum.repos.d/mongo.repo
 
-  - name: Install mongodb client
-    ansible.builtin.package:
-       name: 
+  # - name: Install mongodb client
+  #   ansible.builtin.package:
+  #      name: 
+  #       - mongodb-org
+  #       - mongodb-mongosh
+  #      state: present
+  
+  
+  - name: Configure MongoDB 8.0 repository
+    ansible.builtin.yum_repository:
+      name: mongodb-org-8.0
+      description: MongoDB Repository
+      baseurl: https://repo.mongodb.org/yum/redhat/9/mongodb-org/8.0/x86_64/
+      gpgcheck: true
+      enabled: true
+      gpgkey: https://pgp.mongodb.com/server-8.0.asc
+
+  - name: Install MongoDB packages
+    ansible.builtin.dnf:
+      name:
         - mongodb-org
         - mongodb-mongosh
-       state: present
+      state: present
+      update_cache: true
 
 
 
