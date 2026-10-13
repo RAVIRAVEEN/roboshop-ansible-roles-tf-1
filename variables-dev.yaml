@@ -1,12 +1,12 @@
-MONGODB_HOST: mongodb-dev.devopsrank.online
-REDIS_HOST: redis-dev.devopsrank.online
-CATALOGUE_HOST: catalogue.app-dev.devopsrank.online
-USER_HOST: user.app-dev.devopsrank.online
-CART_HOST: cart.app-dev.devopsrank.online
-SHIPPING_HOST: shipping.app-dev.devopsrank.online
-MYSQL_HOST: mysql-dev.devopsrank.online
-RABBITMQ_HOST: rabbitmq-dev.devopsrank.online
-PAYMENTS_HOST: payments.app-dev.devopsrank.online
+MONGODB_HOST: mongodb-{{ env }}.raveen.fun        #mongodb-dev.raveen.fun
+REDIS_HOST: redis-{{ env }}.raveen.fun
+CATALOGUE_HOST: catalogue-{{ env }}.raveen.fun  #catalogue-dev.raveen.fun
+USER_HOST: user.app-dev.raveen.fun
+CART_HOST: cart.app-dev.raveen.fun
+SHIPPING_HOST: shipping.app-dev.raveen.fun
+MYSQL_HOST: mysql-dev.raveen.fun
+RABBITMQ_HOST: rabbitmq-dev.raveen.fun
+PAYMENTS_HOST: payments.app-dev.raveen.fun
 #WEB_HOST: web-dev.devopsrank.online
 DISPATCH_HOST: dispatch.app-dev.devopsrank.online
 NEXUS_URL: http://172.31.45.35:8081/repository
