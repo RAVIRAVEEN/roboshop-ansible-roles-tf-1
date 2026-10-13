@@ -40,10 +40,10 @@
     register: catalogue_output
 
     
-  - name: "gets the  {{component}} entries count"
-    ansible.builtin.shell:  mongosh --host {{MONGODB_HOST}} --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
-    register: users_count
-    when: component == "user"
+  # - name: "gets the  {{component}} entries count"
+  #   ansible.builtin.shell:  mongosh --host {{MONGODB_HOST}} --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
+  #   register: users_count
+  #   when: component == "user"
 
   # - name: print the count
   #   ansible.builtin.debug:
@@ -55,14 +55,14 @@
   #   #ignore_errors: true
 
   - name: load catalogue products
-    shell: mongosh --host "{{ MONGODB_HOST }}" </app/db/master-data.js
+    shell: mongosh --host "{{ MONGODB_HOST }}" </app/schema/{{component}}.js
     when: catalogue_output.stdout | int < 0
     # tags:
     # - mongodb
 
     
     
-  -  name: "load user data"
-     ansible.builtin.shell: "mongosh --host {{MONGODB_HOST}} </app/schema/{{component}}.js"  
-     when: component == "user" and users_count.stdout == "0"
-     #ignore_errors: true
+  # -  name: "load user data"
+  #    ansible.builtin.shell: "mongosh --host {{MONGODB_HOST}} </app/schema/{{component}}.js"  
+  #    when: component == "user" and users_count.stdout == "0"
+  #    #ignore_errors: true
