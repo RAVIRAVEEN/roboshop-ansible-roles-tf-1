@@ -4,6 +4,6 @@
   become: yes
   vars_files:
    #- variables.yaml
-   - "variables-{{env}}.yaml"
+   - "variables-{{ env }}.yaml"
   roles: 
   - "{{component}}"
